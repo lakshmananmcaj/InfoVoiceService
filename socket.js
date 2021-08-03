@@ -11,7 +11,27 @@ const {isRealString} = require('./utils/isRealString');
 //const {Users} = require('./utils/users');
 
 
+
+
 module.exports.initIO = (httpServer) => {
+    io = new Server(httpServer,{
+    
+   cors: {
+    origins: "*",
+     handlePreflightRequest: (req, res) => {
+      res.writeHead(200, {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET,POST",
+        "Access-Control-Allow-Headers": "my-custom-header"
+     });
+     res.end();
+     }} 
+    //methods: ["GET", "POST"],
+    //credentials: true
+    
+});
+
+/*module.exports.initIO = (httpServer) => {
     io = new Server(httpServer,{
         cors: {
           origin: "http://localhost:3000",
@@ -19,7 +39,7 @@ module.exports.initIO = (httpServer) => {
           credentials: true
         }
       });
-
+*/
     io.use((socket, next) => {
         if (socket.handshake.query) {
             let userName = socket.handshake.query.name
