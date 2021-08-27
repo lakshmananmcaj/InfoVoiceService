@@ -60,12 +60,7 @@ io.on('connection', (socket) => {
       console.log(message);
     });
     
-     socket.emit('UpdateUsers', {
-        //greeting: users
-          greeting: 'before join'
-
-      });
-    
+     
     socket.on('join', (params, callback) => {
        if(!isRealString(params.name) || !isRealString(params.room)){
          return callback('Name and room are required');
@@ -74,10 +69,22 @@ io.on('connection', (socket) => {
       let stsCall='Free';
       socket.join(params.room);
       //users.removeUser(socket.id);
-        
+     
+        socket.emit('UpdateUsers', {
+        //greeting: users
+          greeting: 'before add user'
+
+      });
+    
         
       users.addUser(socket.id, params.name, params.room,"NA");
         
+        socket.emit('UpdateUsers1', {
+        //greeting: users
+          greeting: 'after  add user'
+
+      });
+    
         socket.emit('UpdateUsers', {
         greeting: users
 
