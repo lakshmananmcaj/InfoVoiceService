@@ -60,6 +60,12 @@ io.on('connection', (socket) => {
       console.log(message);
     });
     
+     socket.emit('UpdateUsers', {
+        //greeting: users
+          greeting: 'updating user'
+
+      });
+    
     socket.on('join', (params, callback) => {
        if(!isRealString(params.name) || !isRealString(params.room)){
          return callback('Name and room are required');
