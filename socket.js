@@ -76,7 +76,9 @@ io.on('connection', (socket) => {
       io.to(socket.user).emit('updateUsersList', users.getUserList(socket.user,'NA'));
         
          socket.emit('UpdateUsers', {
-        greeting: users
+        //greeting: users
+          greeting: 'Hello AAA'
+
 
       });
 
