@@ -74,6 +74,11 @@ io.on('connection', (socket) => {
       socket.user=params.room;
      // io.to(params.room).emit('updateUsersList', users.getUserList(params.room));
       io.to(socket.user).emit('updateUsersList', users.getUserList(socket.user,'NA'));
+        
+         socket.emit('UpdateUsers', {
+        greeting: users
+
+      });
 
       callback();
     })
