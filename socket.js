@@ -61,32 +61,23 @@ io.on('connection', (socket) => {
     });
     
     socket.on('join', (params, callback) => {
-      // if(!isRealString(params.name) || !isRealString(params.room)){
-        // return callback('Name and room are required');
-       //}
+       if(!isRealString(params.name) || !isRealString(params.room)){
+         return callback('Name and room are required');
+       }
       
       let stsCall='Free';
-      socket.join('test');
+      socket.join(params.room);
       //users.removeUser(socket.id);
         
-        socket.emit('UpdateUsers', {
-        //greeting: users
-          greeting: 'Hello AAA'
-
-      });
         
       users.addUser(socket.id, params.name, params.room,"NA");
       //socket.broadcast.emit('user-connected', params.name) // Tell everyone else in the room that we joined
 
-         socket.emit('UpdateUsers1', {
-        //greeting: users
-          greeting: 'updating user'
-
-      });
+     
         
       socket.user=params.room;
      // io.to(params.room).emit('updateUsersList', users.getUserList(params.room));
-   //     io.to(socket.user).emit('updateUsersList', users.getUserList(socket.user,'NA'));
+        io.to(socket.user).emit('updateUsersList', users.getUserList(socket.user,'NA'));
         
          
 
