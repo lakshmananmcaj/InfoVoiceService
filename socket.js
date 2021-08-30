@@ -72,15 +72,9 @@ io.on('connection', (socket) => {
      
 
     
-             // users.addUser("55555abcd","akshay", "program","NA");
 
         users.addUser(socket.id, params.name, params.room,"NA");
-        
-        socket.emit('UpdateUsersone', {
-        //greeting: users
-          greeting: 'after  add user'
-
-      });
+       
     
         socket.emit('UpdateUsers', {
         greeting: users
