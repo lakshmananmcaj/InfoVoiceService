@@ -70,11 +70,7 @@ io.on('connection', (socket) => {
       socket.join(params.room);
       //users.removeUser(socket.id);
      
-        socket.emit('UpdateUsers', {
-        //greeting: users
-          greeting: 'before add user'
 
-      });
     
              // users.addUser("55555abcd","akshay", "program","NA");
 
