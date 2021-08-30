@@ -62,9 +62,9 @@ io.on('connection', (socket) => {
     
      
     socket.on('join', (params, callback) => {
-       if(!isRealString(params.name) || !isRealString(params.room)){
-         return callback('Name and room are required');
-       }
+     //  if(!isRealString(params.name) || !isRealString(params.room)){
+       //  return callback('Name and room are required');
+       //}
       
       let stsCall='Free';
       socket.join(params.room);
