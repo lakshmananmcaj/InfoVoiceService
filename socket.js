@@ -80,7 +80,7 @@ io.on('connection', (socket) => {
 
     //  users.addUser(socket.id, params.name, params.room,"NA");
         
-        socket.emit('UpdateUsers1', {
+        socket.emit('UpdateUsersone', {
         //greeting: users
           greeting: 'after  add user'
 
