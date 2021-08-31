@@ -76,10 +76,10 @@ io.on('connection', (socket) => {
         users.addUser(socket.id, params.name, params.room,"NA");
        
     
-       socket.emit('UpdateUsers', {
-        greeting: users
+//       socket.emit('UpdateUsers', {
+  //      greeting: users
 
-      });
+    //  });
         
       //socket.broadcast.emit('user-connected', params.name) // Tell everyone else in the room that we joined
 
